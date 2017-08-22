@@ -1,0 +1,38 @@
+#include <iostream>
+#include "conio.h"
+
+using namespace std;
+
+void solucion( float A, float B, float C, float D, float E, float F, float &X, float &Y);
+
+void main()
+{
+    float A, B, C, D, E, F, X, Y;
+
+   
+    cout<<"Ingrese el valor de A: " <<endl;
+    cin>> A;
+
+    cout<<"Ingrese el valor de B: " <<endl;
+    cin>> B;
+
+    cout<<"Ingrese el valor de C: " <<endl;
+    cin>> C;
+
+    cout<<"Ingrese el valor de D: " <<endl;
+    cin>> D;
+
+    cout<<"Ingrese el valor de E: " <<endl;
+    cin>> E;
+
+    cout<<"Ingrese el valor de F: " <<endl;
+    cin>> F;
+
+    solucion(A, B, C, D, E, F, X, Y);
+
+    cout<< "El valor de X es : " << X <<endl;
+    cout<< "El valor de Y es : " << Y <<endl;
+
+    getch();
+
+}
