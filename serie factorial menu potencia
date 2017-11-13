@@ -1,0 +1,105 @@
+#include "stdafx.h"
+	#include <iostream>
+	#include <conio.h>
+	#include <math.h>
+	using namespace std;
+	
+
+	float POTEN(float x, int y);
+	int FAC(int n);
+	float serie(int X, int N);
+	
+
+	void main(){
+	
+
+		int op,f,y,N,X,n;
+		float p,s,x;
+		do{
+			cout<< "---MENU---"<<endl;
+			cout<< "1. Calcular potencia."<<endl;
+			cout<< "2. Calcular factorial."<<endl;
+			cout<< "3. Calcular serie."<<endl;
+			cout<< "0. Salir."<<endl;
+			cout<< "Ingrese opcion:"<< endl;
+			cin>>op;
+	
+
+			switch(op){
+				case 1:{	
+						cout<<"Ingrese base:"<<endl;
+						cin>> x;
+						cout<<"Ingrese exponente:"<<endl;
+						cin>> y;
+						p=POTEN( x,y);
+						cout<< "La potencia de " << x << "elevado a " << y <<"es " << p;
+						break;
+					   }
+				case 2: {
+						cout<<"Ingrese numero:"<<endl;
+						cin>> n;
+						f=FAC(n);
+						cout<< "El factorial es " << f;
+						break;
+						}
+				case 3:{
+						cout<<"Ingrese valor de X:"<<endl;
+						cin>> X;
+						cout<<"Ingrese valor de N:"<<endl;
+						cin>> N;
+						s=serie(X,N);
+						cout<< "La suma de la serie es :"<< s;
+						break;
+					   }
+				case 0: 
+						cout<<" SALIR ";
+						break;
+				default:
+						cout<< "OPCION INVALIDA";
+			}
+			getch();
+			system("cls");
+	
+
+		}while(op!=0);
+	
+
+		
+	}
+	
+
+	float POTEN(float x, int y){
+		
+		float p=1;
+		int i;
+		for(i=1; i<=y ; i++){
+			p=p*x;
+		}
+		return p;
+	}
+	
+
+	int FAC(int n){
+		
+		int p=1, i;
+		for(i=0; i<n; i++){
+			p=p*i;
+		}
+		return p;
+	}
+	
+
+	float serie(int X, int N){
+	
+
+		float s=0;
+		int i;
+		for(i=0; i<N; i++){
+			
+			s=s*POTEN(X,i)/FAC(i);
+		
+		}
+	
+
+		return s;
+	}
