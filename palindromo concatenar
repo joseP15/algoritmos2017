@@ -1,0 +1,123 @@
+#include "stdafx.h"
+#include <iostream>
+#include "conio.h"
+#include "math.h"
+#include <string>
+#include "stdlib.h"
+#define MAX 100
+
+using namespace std;
+
+bool palindromo(string var2);                                                                                                                                                                                        
+float areatriangulo(float a, float b, float c);
+void leervector(int vec[], int N);
+void concatenarvector(int A[], int n, int B[], int m, int &k, int C);
+string invertir(string var3);
+void main(){
+
+    int opcion, vec[MAX], N, C[MAX], k, n, m, A[MAX], B[MAX];
+    float a, b, c, area;
+    string cadena, reversa;
+
+    do {
+        cout <<endl<<"\tMenu"<<endl;
+        cout<< "1. Palindromo"<<endl;
+        cout<< "2. Area triangulo"<<endl;
+        cout<< "3. Concatenar vector"<<endl;
+        cout<< "0. salir"<<endl;
+        cout<<"Elija una opcion:";
+        cin>> opcion;
+
+        switch (opcion) {
+            case 1: 
+                    cout<<"ingrese cadena"<<endl;
+					cin.ignore();
+					getline(cin,cadena);
+					cout<<"la cadena invertida es:"<<invertir(cadena)<<endl;
+					break;
+
+            case 2: 
+                    cout<<"Ingrese los tres lados del triangulo:"<<endl;
+                    cout<<"a:";
+                    cin>>a;
+                    cout<<"b:";
+                    cin>>b;
+                    cout<<"c:";
+                    cin>>c;
+                    area= areatriangulo(a, b, c);
+                    break;
+			case 3:	
+					cout<<"Ingrese tamaño del vector A:";
+					cin>> n;
+					leervector(A, n);
+					cout<<"Ingrese tamaño del vector B:";
+					cin>> m;
+					leervector(B, m);
+					concatenarvector(A, n, B, m, k, C);
+                    break;
+            case 0: cout<<"salir";
+                    break;
+            default: cout<<"Opcion invalida";
+        }
+        
+        system("cls");
+
+    }while (opcion!=0);
+    getch();
+}
+
+
+
+string invertir(string var3){
+	int lng;
+	char aux;
+	string var2=var3;
+	lng = var2.length();
+	for(int i=0;i<lng/2;i++)
+	{
+		aux = var2.at(i);
+		var2[i] = var2[lng-1-i];
+		var2[lng-1-i] = aux;
+	}
+	return var2;
+}
+
+
+
+float areatriangulo(float a, float b, float c){
+    float area, s;
+
+    s=(a+b+c)/2;
+    area= sqrt(s*(s-a)*(s-b)*(s-c));
+ 
+    return area;
+}
+
+void leervector(int vec[], int N){
+    
+    for(int i=0; i<N; i++){
+        cout<<"Ingrese elementos del vector: " <<endl;
+        cout<<"V["<<i<<"]=";
+        cin>>vec[i];
+    }
+
+}
+
+void concatenarvector(int A[], int n, int B[], int m, int &k , int C[]){
+    k= n+m;
+	int l=0;
+
+	for(int i=0; i<n ;i++){
+		C[l]= A[i];
+		l++;
+	}
+	for(int i=0; i<m; i++){
+		C[l]= B[i];
+		l++;
+	}
+
+	cout<<"El nuevo vector es:" <<endl ;
+	for(int i=0; i<k; i++){
+		cout<< C[i]<<"\t";
+	}
+}
