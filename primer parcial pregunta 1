@@ -1,0 +1,54 @@
+#include "stdafx.h"
+#include <iostream>
+#include "conio.h"
+#include <string>
+#define MAX 100
+using namespace std;
+
+void cargar(string nombre[], float notas[], int n);
+float media(float notas[], int n);
+void diferencia(string nombre[], float notas[], int n, float &med);
+
+void main(){
+	string nombre[MAX];
+	float notas[MAX], med, dif;
+	int n;
+	cout<<"Introduzca numero de estudiantes:"<<endl;
+	cin>>n;
+	cargar(nombre, notas, n);
+	med=media(notas, n);
+	cout<< "La media es: "<< med <<endl;
+	diferencia(nombre, notas, n, med);
+	getch();
+}
+
+void cargar(string nombre[], float notas[], int n){
+	cout<<"Ingrese nombres y notas:"<<endl;
+	for(int i=0; i<n; i++){
+		cout<<"Estudiante"<<i<<"=";
+		cin.ignore();
+		getline(cin, nombre[i]);
+		cout<<"\t";
+		cout<<"Nota:";
+		cin>>notas[i];
+	}
+}
+
+float media(float notas[], int n){
+	int s=0;
+
+	for(int i=0; i<n; i++){
+		s=s+notas[i];
+	}
+	return (s/n);
+}
+
+void diferencia(string nombre[], float notas[], int n, float &med){
+	cout<<"NOMBRE"<<"\t"<< "DIFERENCIA"<<endl;
+	for(int i=0; i<n; i++){
+		
+		cout<<nombre[i]<<"\t"<< (notas[i]-med);
+		cout<<endl;
+	}
+
+}
