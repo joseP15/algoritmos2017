@@ -1,0 +1,69 @@
+#include "stdafx.h"
+#include "conio.h"
+#include <iostream>
+#include <string>
+#include "stdlib.h"
+#define MAX 20
+
+using namespace std;
+
+struct t_empleado{
+	int nro_empleado;
+	string nombre;
+	string apellido;
+	string direccion;
+	int telefono;
+	int celular;
+	float salario_bruto;
+};
+void cargart_empleado(t_empleado vector[], int n);
+void mostrart_empleado(t_empleado vector[], int n);
+
+void main()
+{    int n;
+     int cont=1;
+	 t_empleado vector[MAX];
+	 do{
+		 cout<<"Ingrese la cantidad de empleados: ";
+		 cin>>n;
+	 }while ((n<0)||(n>MAX));
+	 cargart_empleado(vector,n);
+	 mostrart_empleado(vector,n);
+	 getch();
+}
+
+void cargart_empleado(t_empleado vector[], int n)
+{   cin.ignore();
+	for (int i=0; i<n; i++)
+{
+	 vector[i].nro_empleado=i+1;
+	 cout<<"Ingrese el nombre: ";
+	 getline(cin,vector[i].nombre);
+	 cout<<"Ingrese el apellido: ";
+	 getline(cin,vector[i].apellido);
+	 cout<<"Ingrese la direccion: ";
+	 getline(cin,vector[i].direccion);
+	 cout<<"Ingrese el numero de telefono: ";
+	 cin>>vector[i].telefono;
+	 cout<<"Ingrese el numero de celular: ";
+	 cin>>vector[i].celular;
+	 cout<<"Ingrese el salario bruto: ";
+	 cin>>vector[i].salario_bruto;
+	 cout<<"\n";
+	 cin.ignore();
+	}
+}
+void mostrart_empleado(t_empleado vector[],int n)
+{ 
+	for(int i=0; i<n; i++)
+    {
+	 cout<<endl<<vector[i].nro_empleado<<"\t";
+	 cout<<endl<<vector[i].nombre<<"\t";
+	 cout<<endl<<vector[i].apellido<<"\t";
+	 cout<<endl<<vector[i].direccion<<"\t";
+	 cout<<endl<<vector[i].telefono<<"\t";
+	 cout<<endl<<vector[i].celular<<"\t";
+	 cout<<endl<<vector[i].salario_bruto<<"\t";
+	}
+	 cin.ignore();
+}
