@@ -1,0 +1,29 @@
+include "stdafx.h"
+#include <iostream>
+#include "conio.h"
+#include <string>
+
+
+using namespace std;
+
+int contarmayusculas(string a);
+
+void main(){
+	int num;
+	string a;
+	cout<<"Ingrese cadena:";
+	cin.ignore();
+	getline(cin, a);
+	num = contarmayusculas(a);
+	cout<<"el numero de mayusculas es: "<<num<<endl;
+	getch();
+}
+
+int contarmayusculas(string a){
+	int n=a.length(), cont=0;
+	for(int i=0; i<n; i++){
+		if(isupper(a[i])==true)
+			cont++;
+	}
+	return cont;
+}
